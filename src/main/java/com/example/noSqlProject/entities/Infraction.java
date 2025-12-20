@@ -20,4 +20,5 @@ public class Infraction {
     private Date date;
     private Degres degres;
     private Radar radar;
+    private Vehicule vehicule;
 }

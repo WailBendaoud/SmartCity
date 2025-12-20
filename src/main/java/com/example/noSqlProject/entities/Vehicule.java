@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,4 +23,5 @@ public class Vehicule {
     private String couleur;
     private Double emissionCo2;
     private Trajet trajet;
+    List<Infraction>infractions;
 }
