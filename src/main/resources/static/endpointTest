@@ -1,0 +1,157 @@
+    ### CLIENT ENDPOINTS ###
+
+    # GET ALL CLIENTS
+    GET http://localhost:8080/api/client
+    Accept: application/json
+
+    ###
+
+    # GET CLIENT BY ID
+    GET http://localhost:8080/api/client/1
+    Accept: application/json
+
+    ###
+
+    # CREATE CLIENT
+    POST http://localhost:8080/api/client
+    Content-Type: application/json
+
+    {
+      "nom": "Mohamed Salah",
+      "prenom": "msalah",
+      "email": "test@gmail.com",
+      "mdp":"test123",
+      "telephone":"1234567890"}
+
+    ###
+
+    # UPDATE CLIENT
+    PUT http://localhost:8080/api/client/1
+    Content-Type: application/json
+
+     {
+          "nom": "Mohamed Salah update",
+          "prenom": "msalah@",
+          "email": "test@gmail.com",
+          "mdp":"test123",
+          "telephone":"123456789000",
+
+        }
+
+    ###
+
+    # DELETE CLIENT BY ID
+    DELETE http://localhost:8080/api/client/1
+
+    ###
+
+    ### GESTIONNAIRE ENDPOINTS ###
+
+    # GET ALL GESTIONNAIRES
+    GET http://localhost:8080/api/gestionnaire
+    Accept: application/json
+
+    ###
+
+    # GET GESTIONNAIRE BY ID
+    GET http://localhost:8080/api/gestionnaire/1
+    Accept: application/json
+
+    ###
+
+    # CREATE GESTIONNAIRE
+    POST http://localhost:8080/api/gestionnaire
+    Content-Type: application/json
+
+    {
+              "nom": "gestionnaire",
+              "prenom": "gestionnaire@",
+              "email": "gestionnaire@gmail.com",
+              "mdp":"gestionnaire",
+              "telephone":"123456789000",
+              "salaire":2000,
+              "dateEmboche":"2025-12-20"
+
+            }
+
+    ###
+
+    # UPDATE GESTIONNAIRE
+    PUT http://localhost:8080/api/gestionnaire/1
+    Content-Type: application/json
+
+     {
+                  "nom": "gestionnaireUPDATE",
+                  "prenom": "gestionnaire@updtae",
+                  "email": "gestionnaire@gmaila.com",
+                  "mdp":"gestionnaireaa",
+                  "telephone":"123456789",
+                  "salaire":2007,
+                  "dateEmboche":"2025-12-20"
+
+                }
+
+    ###
+
+    # DELETE GESTIONNAIRE BY ID
+    DELETE http://localhost:8080/api/gestionnaire/1
+
+    ###
+
+    # ADD PARKING TO GESTIONNAIRE
+    POST http://localhost:8080/api/gestionnaire/addParking?id=1&idParking=park123
+
+    ###
+
+    ### PARKING ENDPOINTS ###
+
+    # GET ALL PARKINGS
+    GET http://localhost:8080/api/parking
+    Accept: application/json
+
+    ###
+
+    # GET PARKING BY ID
+    GET http://localhost:8080/api/parking/park123
+    Accept: application/json
+
+    ###
+
+    # CREATE PARKING
+    POST http://localhost:8080/api/parking
+    Content-Type: application/json
+
+    {
+      "nom": "Parking Central",
+      "location": "Avenue Mohammed V",
+      {
+
+        "nom": "Parking Central",
+        "capacite": 150,
+        "localisation": "Avenue des Fleurs, Casablanca",
+        "prixParHeure": 5.5,
+        "gestionnaire": {"id": 1}
+}
+
+    ###
+
+    # UPDATE PARKING
+    PUT http://localhost:8080/api/parking/park123
+    Content-Type: application/json
+
+     {
+          "nom": "Parking Central",
+          "location": "Avenue Mohammed V",
+          {
+
+            "nom": "Parking Central",
+            "capacite": 150,
+            "localisation": "Avenue des Fleurs, Casablanca",
+            "prixParHeure": 5.5,
+
+    }
+
+    ###
+
+    # DELETE PARKING BY ID
+    DELETE http://localhost:8080/api/parking/park123
