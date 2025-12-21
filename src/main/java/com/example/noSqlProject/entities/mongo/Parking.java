@@ -9,8 +9,7 @@ import java.util.List;
 
 @Document(collection ="Parking")
 
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class Parking {
     @Id
     private String id;
@@ -121,4 +120,24 @@ public class Parking {
     public void setAvenue(Avenue avenue) {
         this.avenue = avenue;
     }
+
+    public Parking(String id, String nom, Integer capacite, String localisation, Double prixParHeure, Gestionnaire gestionnaire, List<Rayon> rayons, List<Long> abonnement, List<String> tickets, List<String> revenues, List<String> charges, Avenue avenue) {
+        this.id = id;
+        this.nom = nom;
+        this.capacite = capacite;
+        this.localisation = localisation;
+        this.prixParHeure = prixParHeure;
+        this.gestionnaire = gestionnaire;
+        this.rayons = rayons;
+        this.abonnement = abonnement;
+        this.tickets = tickets;
+        this.revenues = revenues;
+        this.charges = charges;
+        this.avenue = avenue;
+    }
+
+    public Parking() {
+    }
+
+
 }

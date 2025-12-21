@@ -9,10 +9,10 @@ import java.util.List;
 
 public interface ParkingService extends GenericService<Parking,String> {
 
-//    Parking addRevenue(String idParking,String idRevenue);
-//    Parking addRevenues(String idParking,List<String>revenue);
-//    Parking addCharge(String idParking,String idRevenue);
-//    Parking addCharges(String idParking,List<String>revenue);
+    Parking addRevenue(String idParking,String idRevenue);
+    Parking addRevenues(String idParking,List<String>revenue);
+    Parking addCharge(String idParking,String idRevenue);
+    Parking addCharges(String idParking,List<String>revenue);
 //    Parking addAbonnement(String idParking,Abonnement a);
 //    Parking addTicket(String idParking,String idTicket);
 Parking changeGestionnaire(String id, Gestionnaire g);

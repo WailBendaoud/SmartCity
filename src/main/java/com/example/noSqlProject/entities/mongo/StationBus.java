@@ -12,7 +12,7 @@ public class StationBus {
     public StationBus() {
     }
 
-    public StationBus(String nom, String position) {
+    public StationBus(String nom, String  position) {
         this.nom = nom;
         this.position = position;
     }
@@ -25,11 +25,11 @@ public class StationBus {
         this.nom = nom;
     }
 
-    public String getPosition() {
+    public String  getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(String  position) {
         this.position = position;
     }
 }

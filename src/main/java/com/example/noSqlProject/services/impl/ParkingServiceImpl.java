@@ -1,9 +1,7 @@
 package com.example.noSqlProject.services.impl;
 
 
-import com.example.noSqlProject.entities.mongo.Avenue;
-import com.example.noSqlProject.entities.mongo.Parking;
-import com.example.noSqlProject.entities.mongo.Rayon;
+import com.example.noSqlProject.entities.mongo.*;
 import com.example.noSqlProject.entities.mysql.Gestionnaire;
 import com.example.noSqlProject.exceptions.NotFoundException;
 
@@ -61,12 +59,12 @@ public class ParkingServiceImpl implements ParkingService {
         Gestionnaire g=gestionnaireRepository.findById(p.getGestionnaire().getId()).orElseThrow(()->new NotFoundException(msgGestionnaire));
         List<String>st=new ArrayList<>();
         List<Long>abo=new ArrayList<>();
-        List<Rayon>r=new ArrayList<>();
+
         p.setRevenues(st);
         p.setTickets(st);
         p.setCharges(st);
         p.setAbonnement(abo);
-        p.setRayons(r);
+        p.setAvenue(a);
         p.setGestionnaire(g);
         var parkingSave= parkingRepository .save(p);
         g.setParkingId(parkingSave.getId());
@@ -92,34 +90,41 @@ public class ParkingServiceImpl implements ParkingService {
         return parkingRepository.save(existant);
     }
 //
-//    @Override
-//    public Parking addRevenue(String idParking, String idRevenue) {
-//        Parking p=findById(idParking);
-//        Revenue r=revenueRepository.findById(idRevenue).orElseThrow(()->new NotFoundException(msgRevenue));
-//        p.getRevenues().add(idRevenue);
-//        return p;
-//    }
+    @Override
+    public Parking addRevenue(String idParking, String idRevenue) {
+        Parking p=findById(idParking);
+        Revenue r=revenueRepository.findById(idRevenue).orElseThrow(()->new NotFoundException(msgRevenue));
+        p.getRevenues().add(idRevenue);
+        return p;
+    }
 //
-//    @Override
-//    public Parking addRevenues(String idParking, List<String> revenue) {
-//        Parking p=findById(idParking);
-//        revenue.forEach(r->{
-//            Revenue re=revenueRepository.findById(r).orElseThrow(()->new NotFoundException(msgRevenue));
-//        });
-//        p.getRevenues().addAll(revenue);
-//        return p;
-//    }
+    @Override
+    public Parking addRevenues(String idParking, List<String> revenue) {
+        Parking p=findById(idParking);
+        revenue.forEach(r->{
+            Revenue re=revenueRepository.findById(r).orElseThrow(()->new NotFoundException(msgRevenue));
+        });
+        p.getRevenues().addAll(revenue);
+        return p;
+    }
 //
-//    @Override
-//    public Parking addCharge(String idParking, String idCharge) {
+    @Override
+    public Parking addCharge(String idParking, String idCharge) {
+        Parking p=findById(idParking);
+        Charge r=chargeRepository.findById(idCharge).orElseThrow(()->new NotFoundException(msgRevenue));
+        p.getRevenues().add(idCharge);
+        return p;
+    }
 //
-//        return null;
-//    }
-//
-//    @Override
-//    public Parking addCharges(String idParking, List<String> revenue) {
-//        return null;
-//    }
+    @Override
+    public Parking addCharges(String idParking, List<String> charge) {
+        Parking p=findById(idParking);
+        charge.forEach(r->{
+            Charge re=chargeRepository.findById(r).orElseThrow(()->new NotFoundException(msgRevenue));
+        });
+        p.getRevenues().addAll(charge);
+        return p;
+    }
 //
 //    @Override
 //    public Parking addAbonnement(String idParking, Abonnement a) {

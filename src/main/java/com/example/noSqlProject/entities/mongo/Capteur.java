@@ -14,7 +14,7 @@ public class Capteur {
     @Enumerated(EnumType.STRING)
     private TypeCapteur typeCapteur;
 
-    public Capteur(String position, Etat etat, TypeCapteur typeCapteur) {
+    public Capteur(String  position, Etat etat, TypeCapteur typeCapteur) {
         this.position = position;
         this.etat = etat;
         this.typeCapteur = typeCapteur;
@@ -23,11 +23,11 @@ public class Capteur {
     public Capteur() {
     }
 
-    public String getPosition() {
+    public String  getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(String  position) {
         this.position = position;
     }
 

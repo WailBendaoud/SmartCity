@@ -29,6 +29,7 @@ public class Client extends User {
     @JoinColumn(name = "point_fidelite_id", unique = true)
     private PointFidelite pointFidelite;
 
+
     public Date getDateInscription() {
         return dateInscription;
     }

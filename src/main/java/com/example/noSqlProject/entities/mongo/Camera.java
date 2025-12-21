@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 //@Document
 
 public class Camera {
@@ -17,7 +18,7 @@ public class Camera {
     private String position;
     private Etat etat;
 
-    public Camera(String id, String modeles, Double angleVision, String resolution, String position, Etat etat) {
+    public Camera(String id, String modeles, Double angleVision, String resolution, String  position, Etat etat) {
         this.id = id;
         this.modeles = modeles;
         this.angleVision = angleVision;
@@ -61,11 +62,11 @@ public class Camera {
         this.resolution = resolution;
     }
 
-    public String getPosition() {
+    public String  getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(String  position) {
         this.position = position;
     }
 

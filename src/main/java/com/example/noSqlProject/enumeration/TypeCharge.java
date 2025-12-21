@@ -1,4 +1,11 @@
 package com.example.noSqlProject.enumeration;
 
-public class TypeCharge {
+public enum TypeCharge {
+    ELECTRICITE,
+    SALAIRE,
+    MAINTENANCE,
+    NETTOYAGE,
+    SECURITE,
+    AUTRE
 }
+

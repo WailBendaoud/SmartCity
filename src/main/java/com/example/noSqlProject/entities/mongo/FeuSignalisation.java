@@ -14,7 +14,7 @@ public class FeuSignalisation {
     private Integer dureeRouge;
     private String position;
 
-    public FeuSignalisation(Etat etat, Integer dureeVert, Integer dureeOrange, Integer dureeRouge, String position) {
+    public FeuSignalisation(Etat etat, Integer dureeVert, Integer dureeOrange, Integer dureeRouge, String  position) {
         this.etat = etat;
         this.dureeVert = dureeVert;
         this.dureeOrange = dureeOrange;
@@ -57,11 +57,11 @@ public class FeuSignalisation {
         this.dureeRouge = dureeRouge;
     }
 
-    public String getPosition() {
+    public String  getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(String  position) {
         this.position = position;
     }
 }
