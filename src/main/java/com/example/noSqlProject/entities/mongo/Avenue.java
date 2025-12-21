@@ -10,8 +10,7 @@ import java.util.List;
 
 @Document(collection ="Avenue")
 
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Avenue {
     @Id
     private String id;
@@ -147,6 +146,28 @@ public class Avenue {
     }
 
     public void setFeuSignalisation(List<FeuSignalisation> feuSignalisation) {
+        this.feuSignalisation = feuSignalisation;
+    }
+
+    public Avenue() {
+
+    }
+
+    public Avenue(String id, String nom, Double longueur, Double largeur, Integer nbvoies, String ville, String code_postal, String coordonees, List<Camera> cameras, List<String> radars, List<Station> stations, List<String> parkings, List<Capteur> capteurs, List<StationBus> stationBus, List<FeuSignalisation> feuSignalisation) {
+        this.id = id;
+        this.nom = nom;
+        this.longueur = longueur;
+        this.largeur = largeur;
+        this.nbvoies = nbvoies;
+        this.ville = ville;
+        this.code_postal = code_postal;
+        this.coordonees = coordonees;
+        this.cameras = cameras;
+        this.radars = radars;
+        this.stations = stations;
+        this.parkings = parkings;
+        this.capteurs = capteurs;
+        this.stationBus = stationBus;
         this.feuSignalisation = feuSignalisation;
     }
 }

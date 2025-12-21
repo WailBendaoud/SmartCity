@@ -1,4 +1,6 @@
 package com.example.noSqlProject.enumeration;
 
-public class EtatBorne {
+public enum EtatBorne {
+    ACTIVE,
+            INNACTIVE,MAINTENANCE
 }
