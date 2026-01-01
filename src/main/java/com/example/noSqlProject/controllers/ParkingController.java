@@ -1,6 +1,7 @@
 package com.example.noSqlProject.controllers;
 
 import com.example.noSqlProject.entities.mongo.Parking;
+import com.example.noSqlProject.entities.mongo.Rayon;
 import com.example.noSqlProject.entities.mysql.Gestionnaire;
 import com.example.noSqlProject.services.api.ParkingService;
 import org.springframework.http.HttpStatus;
@@ -59,5 +60,12 @@ public class ParkingController {
     public ResponseEntity<String> deleteById(@PathVariable String id) {
         parkingService.deleteById(id);
         return new ResponseEntity(msgDelete,HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}/rayons")
+    public Parking addRayons(
+            @PathVariable String id,
+            @RequestBody List<Rayon> rayons) {
+        return parkingService.addRayon(id, rayons);
     }
 }

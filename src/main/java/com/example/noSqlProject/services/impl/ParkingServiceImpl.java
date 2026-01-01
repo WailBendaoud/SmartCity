@@ -66,9 +66,13 @@ public class ParkingServiceImpl implements ParkingService {
         p.setAbonnement(abo);
         p.setAvenue(a);
         p.setGestionnaire(g);
+        p.setLocalisation(a.getNom());
+        p.setCapacite(0);
         var parkingSave= parkingRepository .save(p);
         g.setParkingId(parkingSave.getId());
         gestionnaireRepository.save(g);
+        a.getParkings().add(parkingSave.getId());
+        avenueRepository.save(a);
         return parkingSave;
     }
 
@@ -89,7 +93,29 @@ public class ParkingServiceImpl implements ParkingService {
         existant.setGestionnaire(g);
         return parkingRepository.save(existant);
     }
-//
+
+    @Override
+    public Parking addRayon(String parkingId, List<Rayon> rayons) {
+
+        Parking p = findById(parkingId);
+
+        if (p.getRayons() == null) {
+            p.setRayons(new ArrayList<>());
+        }
+
+        p.getRayons().addAll(rayons);
+
+        int sommeCapacites = rayons.stream()
+                .mapToInt(Rayon::getCapacite)
+                .sum();
+
+        p.setCapacite(p.getCapacite() + sommeCapacites);
+
+        return parkingRepository.save(p);
+    }
+
+
+    //
     @Override
     public Parking addRevenue(String idParking, String idRevenue) {
         Parking p=findById(idParking);

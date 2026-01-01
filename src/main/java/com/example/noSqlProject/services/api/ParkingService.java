@@ -2,6 +2,7 @@ package com.example.noSqlProject.services.api;
 
 
 import com.example.noSqlProject.entities.mongo.Parking;
+import com.example.noSqlProject.entities.mongo.Rayon;
 import com.example.noSqlProject.entities.mysql.Gestionnaire;
 import com.example.noSqlProject.services.GenericService;
 
@@ -16,6 +17,7 @@ public interface ParkingService extends GenericService<Parking,String> {
 //    Parking addAbonnement(String idParking,Abonnement a);
 //    Parking addTicket(String idParking,String idTicket);
 Parking changeGestionnaire(String id, Gestionnaire g);
+Parking addRayon(String id, List<Rayon> rayons);
 
 
 

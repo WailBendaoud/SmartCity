@@ -10,6 +10,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class GestionnaireServiceImpl implements GestionnaireService {
@@ -26,6 +27,14 @@ public class GestionnaireServiceImpl implements GestionnaireService {
     @Override
     public List<Gestionnaire> getAll() {
         return gestionnaireRepository.findAll();
+    }
+
+    @Override
+    public List<Gestionnaire> getAllParkingNull() {
+        return gestionnaireRepository.findAll()
+                .stream()
+                .filter(gestionnaire -> gestionnaire.getParkingId() == null)
+                .collect(Collectors.toList());
     }
 
     @Override

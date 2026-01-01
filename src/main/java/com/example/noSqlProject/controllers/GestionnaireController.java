@@ -35,6 +35,10 @@ public class GestionnaireController {
     public ResponseEntity<List<Gestionnaire>> getAll() {
         return ResponseEntity.ok(gestionnaireService.getAll());
     }
+    @GetMapping("/dispo")
+    public ResponseEntity<List<Gestionnaire>> getAllParkingNull() {
+        return ResponseEntity.ok(gestionnaireService.getAllParkingNull());
+    }
 
 
     @GetMapping("/{id}")
