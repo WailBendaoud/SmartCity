@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.Instant;
 import java.util.List;
 
 @Document(collection ="Radar")
@@ -23,18 +24,30 @@ public class Radar {
     private String  position;
     private List<String>infractions;
     private Avenue avenue;
+    private Instant createdAt;
 
-    public Radar(String id, TypeRadar typeRadar, Double vitesseMax, String position, List<String> infractions, Avenue avenue) {
+
+    public Radar() {
+    }
+
+    public Radar(String id, TypeRadar typeRadar, Double vitesseMax, String position, List<String> infractions, Avenue avenue, Instant createdAt) {
         this.id = id;
         this.typeRadar = typeRadar;
         this.vitesseMax = vitesseMax;
         this.position = position;
         this.infractions = infractions;
-        this.avenue=avenue;
+        this.avenue = avenue;
+        this.createdAt = createdAt;
+    }
+    public Instant getCreatedAt() {
+        return createdAt;
     }
 
-    public Radar() {
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
     }
+
+
 
     public String getId() {
         return id;

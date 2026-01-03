@@ -1,51 +1,54 @@
-//package com.example.noSqlProject.services.impl;
-//
-//import com.example.noSqlProject.entities.Abonnement;
-//import com.example.noSqlProject.entities.Parking;
-//import com.example.noSqlProject.exceptions.NotFoundException;
-//import com.example.noSqlProject.repositories.AbonnementRepository;
-//import com.example.noSqlProject.repositories.ParkingRepository;
-//import com.example.noSqlProject.services.api.AbonnementService;
-//import lombok.AllArgsConstructor;
-//import org.springframework.stereotype.Service;
-//
-//import java.util.List;
-//
-//@Service
-//@AllArgsConstructor
-//public class AbonnementServiceImpl implements AbonnementService {
-//    private final AbonnementRepository abonnementRepository;
-//    private final ParkingRepository parkingRepository;
-//    final String msg="Abonnement introuvable";
-//
-//
-//    @Override
-//    public List<Abonnement> getAll() {
-//        return List.of();
-//    }
-//
-//    @Override
-//    public Abonnement findById(String id) {
-//        return null;
-//    }
-//
-//    @Override
-//    public Abonnement save(Abonnement element) {
-//        return null;
-//    }
-//
-//    @Override
-//    public Abonnement update(Abonnement element, String id) {
-//        return null;
-//    }
-//
-//    @Override
-//    public void delete(Abonnement element) {
-//
-//    }
-//
-//    @Override
-//    public void deleteById(String id) {
-//
-//    }
-//}
+package com.example.noSqlProject.services.impl;
+
+
+import com.example.noSqlProject.entities.mysql.Abonnement;
+
+import com.example.noSqlProject.repositories.mysql.AbonnementRepository;
+import com.example.noSqlProject.repositories.mongo.ParkingRepository;
+import com.example.noSqlProject.services.api.AbonnementService;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class AbonnementServiceImpl implements AbonnementService {
+    private final AbonnementRepository abonnementRepository;
+    private final ParkingRepository parkingRepository;
+    final String msg="Abonnement introuvable";
+
+    public AbonnementServiceImpl(AbonnementRepository abonnementRepository, ParkingRepository parkingRepository) {
+        this.abonnementRepository = abonnementRepository;
+        this.parkingRepository = parkingRepository;
+    }
+
+
+    @Override
+    public List<Abonnement> getAll() {
+        return List.of();
+    }
+
+    @Override
+    public Abonnement findById(Long aLong) {
+        return null;
+    }
+
+    @Override
+    public Abonnement save(Abonnement element) {
+        return null;
+    }
+
+    @Override
+    public Abonnement update(Abonnement element, Long aLong) {
+        return null;
+    }
+
+    @Override
+    public void deleteById(Long aLong) {
+
+    }
+
+
+    public List<Abonnement> getHistoriqueAbonnements(Long clientId) {
+        return abonnementRepository.findByClientIdOrderByDateDebutDesc(clientId);
+    }
+}

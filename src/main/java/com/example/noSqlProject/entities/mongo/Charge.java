@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.Instant;
 import java.util.Date;
 
 @Document(collection ="Charge")
@@ -21,14 +22,16 @@ public class Charge {
     private Date dateCharge;
     private String description;
     private Parking parking;
+    private Instant createdAt;
 
-    public Charge(String id, TypeCharge type, Double montant, Date dateCharge, String description, Parking parking) {
+    public Charge(String id, TypeCharge type, Double montant, Date dateCharge, String description, Parking parking, Instant createdAt) {
         this.id = id;
         this.type = type;
         this.montant = montant;
         this.dateCharge = dateCharge;
         this.description = description;
         this.parking = parking;
+        this.createdAt = createdAt;
     }
 
     public Charge() {
@@ -80,5 +83,13 @@ public class Charge {
 
     public void setParking(Parking parking) {
         this.parking = parking;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
     }
 }

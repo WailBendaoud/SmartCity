@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -23,14 +24,16 @@ public class Infraction {
     private Degres degres;
     private Radar radar;
     private Vehicule vehicule;
+    private Instant createdAt;
 
-    public Infraction(String id, Double vitesse, LocalDateTime date, Degres degres, Radar radar, Vehicule vehicule) {
+    public Infraction(String id, Double vitesse, LocalDateTime date, Degres degres, Radar radar, Vehicule vehicule, Instant createdAt) {
         this.id = id;
         this.vitesse = vitesse;
         this.date = date;
         this.degres = degres;
         this.radar = radar;
         this.vehicule = vehicule;
+        this.createdAt = createdAt;
     }
 
     public Infraction() {
@@ -82,5 +85,13 @@ public class Infraction {
 
     public void setVehicule(Vehicule vehicule) {
         this.vehicule = vehicule;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
     }
 }

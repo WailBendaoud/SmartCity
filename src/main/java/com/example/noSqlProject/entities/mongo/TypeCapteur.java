@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.Instant;
+
 @Document(collection = "TypeCapteur")
 
 public class TypeCapteur {
@@ -14,12 +16,22 @@ public class TypeCapteur {
     private String nom;
     private String description;
     private String unite;
+    private Instant createdAt;
 
-    public TypeCapteur(String id, String nom, String description, String unite) {
+    public TypeCapteur(String id, String nom, String description, String unite, Instant createdAt) {
         this.id = id;
         this.nom = nom;
         this.description = description;
         this.unite = unite;
+        this.createdAt = createdAt;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
     }
 
     public TypeCapteur() {

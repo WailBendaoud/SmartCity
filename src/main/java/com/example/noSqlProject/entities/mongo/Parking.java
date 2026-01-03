@@ -5,6 +5,7 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.Instant;
 import java.util.List;
 
 @Document(collection ="Parking")
@@ -24,6 +25,8 @@ public class Parking {
     private List<String> revenues;//
     private List<String> charges;//
     private Avenue avenue;
+    private Instant createdAt;
+
 
     public String getId() {
         return id;
@@ -121,7 +124,7 @@ public class Parking {
         this.avenue = avenue;
     }
 
-    public Parking(String id, String nom, Integer capacite, String localisation, Double prixParHeure, Gestionnaire gestionnaire, List<Rayon> rayons, List<Long> abonnement, List<String> tickets, List<String> revenues, List<String> charges, Avenue avenue) {
+    public Parking(String id, String nom, Integer capacite, String localisation, Double prixParHeure, Gestionnaire gestionnaire, List<Rayon> rayons, List<Long> abonnement, List<String> tickets, List<String> revenues, List<String> charges, Avenue avenue, Instant createdAt) {
         this.id = id;
         this.nom = nom;
         this.capacite = capacite;
@@ -134,6 +137,15 @@ public class Parking {
         this.revenues = revenues;
         this.charges = charges;
         this.avenue = avenue;
+        this.createdAt = createdAt;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
     }
 
     public Parking() {

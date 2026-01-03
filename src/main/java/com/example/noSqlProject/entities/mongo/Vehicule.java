@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.Instant;
 import java.util.List;
 
 @Document(collection = "Vehicule")
@@ -26,8 +27,9 @@ public class Vehicule {
     private Long client;
     private List<String> trajet;
     private List<Infraction>infractions;
+    private Instant createdAt;
 
-    public Vehicule(String id, String immatriculation, TypeVehicule typeVehicule, String marque, String model, String couleur, Double emissionCo2, List<String> trajet, List<Infraction> infractions,Long client) {
+    public Vehicule(String id, String immatriculation, TypeVehicule typeVehicule, String marque, String model, String couleur, Double emissionCo2, Long client, List<String> trajet, List<Infraction> infractions, Instant createdAt) {
         this.id = id;
         this.immatriculation = immatriculation;
         this.typeVehicule = typeVehicule;
@@ -35,10 +37,21 @@ public class Vehicule {
         this.model = model;
         this.couleur = couleur;
         this.emissionCo2 = emissionCo2;
+        this.client = client;
         this.trajet = trajet;
         this.infractions = infractions;
-        this.client=client;
+        this.createdAt = createdAt;
     }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
+
 
     public String getId() {
         return id;

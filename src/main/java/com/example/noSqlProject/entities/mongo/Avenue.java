@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.Instant;
 import java.util.List;
 
 @Document(collection ="Avenue")
@@ -28,6 +29,7 @@ public class Avenue {
     private List<Capteur>capteurs;
     private List<StationBus>stationBus;
     private List<FeuSignalisation>feuSignalisation;
+    private Instant createdAt;
 
     public String getId() {
         return id;
@@ -149,11 +151,19 @@ public class Avenue {
         this.feuSignalisation = feuSignalisation;
     }
 
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public Avenue() {
 
     }
 
-    public Avenue(String id, String nom, Double longueur, Double largeur, Integer nbvoies, String ville, String code_postal, String coordonees, List<Camera> cameras, List<String> radars, List<Station> stations, List<String> parkings, List<Capteur> capteurs, List<StationBus> stationBus, List<FeuSignalisation> feuSignalisation) {
+    public Avenue(String id, String nom, Double longueur, Double largeur, Integer nbvoies, String ville, String code_postal, String coordonees, List<Camera> cameras, List<String> radars, List<Station> stations, List<String> parkings, List<Capteur> capteurs, List<StationBus> stationBus, List<FeuSignalisation> feuSignalisation, Instant createdAt) {
         this.id = id;
         this.nom = nom;
         this.longueur = longueur;
@@ -169,5 +179,6 @@ public class Avenue {
         this.capteurs = capteurs;
         this.stationBus = stationBus;
         this.feuSignalisation = feuSignalisation;
+        this.createdAt = createdAt;
     }
 }

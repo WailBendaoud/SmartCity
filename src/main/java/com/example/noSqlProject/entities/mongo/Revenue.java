@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.Instant;
 import java.util.Date;
 @Document(collection = "Revenue")
 
@@ -22,17 +23,27 @@ public class Revenue {
     private Date dateRevenu;
     private String description;
     private Parking parking;
+    private Instant createdAt;
 
-    public Revenue(String id, TypeRevenue type, Double montant, Date dateRevenu, String description, Parking parking) {
+    public Revenue() {
+    }
+
+    public Revenue(String id, TypeRevenue type, Double montant, Date dateRevenu, String description, Parking parking, Instant createdAt) {
         this.id = id;
         this.type = type;
         this.montant = montant;
         this.dateRevenu = dateRevenu;
         this.description = description;
         this.parking = parking;
+        this.createdAt = createdAt;
     }
 
-    public Revenue() {
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
     }
 
     public String getId() {

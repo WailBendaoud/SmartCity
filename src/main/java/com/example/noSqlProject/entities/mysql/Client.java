@@ -18,7 +18,7 @@ public class Client extends User {
     private Date dateInscription;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("client")
+    @JsonIgnoreProperties({"client","abonnement"})
     private List<Paiement>paiement;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)

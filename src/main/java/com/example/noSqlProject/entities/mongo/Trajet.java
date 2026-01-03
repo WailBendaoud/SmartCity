@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.Instant;
 import java.util.List;
 
 @Document(collection = "Trajet")
@@ -19,15 +20,25 @@ public class Trajet {
     private String heureArrivee;
     private Double distance;
     private Vehicule vehicule;
+    private Instant createdAt;
 
-    public Trajet(String id, String pointDepart, String poitArrivee, String heureDepart, String heureArrivee, Double distance,Vehicule v) {
+    public Trajet(String id, String pointDepart, String poitArrivee, String heureDepart, String heureArrivee, Double distance, Vehicule vehicule, Instant createdAt) {
         this.id = id;
         this.pointDepart = pointDepart;
         this.poitArrivee = poitArrivee;
         this.heureDepart = heureDepart;
         this.heureArrivee = heureArrivee;
         this.distance = distance;
-        this.vehicule=v;
+        this.vehicule = vehicule;
+        this.createdAt = createdAt;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
     }
 
     public Trajet() {
